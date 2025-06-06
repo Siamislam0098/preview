@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozima Cloud - All Hosting Plans</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #e2e8f0; /* Slate 200 */
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+        }
+        /* Custom background for hero section with a subtle gradient */
+        .hero-background {
+            background: linear-gradient(to bottom, #1e293b, #0f172a);
+        }
+        /* Custom scroll animation styles */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom gradient button */
+        .gradient-button {
+            background: linear-gradient(to right, #6366f1, #8b5cf6); /* Indigo 500 to Violet 500 */
+            transition: all 0.3s ease;
+        }
+        .gradient-button:hover {
+            background: linear-gradient(to right, #4f46e5, #7c3aed); /* Darker shades on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        /* Highlight color for accents */
+        .text-ozima-accent {
+            color: #6366f1; /* Indigo 500 */
+        }
+        /* Card hover effect */
+        .price-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+         /* Burger menu icon styling */
+         .burger-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+        .burger-icon span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: #e2e8f0;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+        .burger-icon.open span:nth-child(1) {
+            transform: translateY(11px) rotate(45deg);
+        }
+        .burger-icon.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .burger-icon.open span:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header (reused from main page for consistency) -->
+    <header class="bg-gray-900 text-slate-200 p-4 md:p-6 shadow-lg fixed w-full z-50">
+        <nav class="container mx-auto flex justify-between items-center flex-wrap">
+            <a href="index.html" class="text-3xl font-bold text-white tracking-wide">Ozima<span class="text-ozima-accent"> Cloud</span></a>
+            
+            <!-- Mobile Menu Button -->
+            <div class="block lg:hidden">
+                <button id="mobile-menu-button" class="burger-icon focus:outline-none">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul id="nav-menu" class="hidden lg:flex flex-grow justify-center space-x-8 text-lg font-medium mt-4 lg:mt-0 w-full lg:w-auto">
+                <li><a href="index.html#home" class="hover:text-ozima-accent transition duration-300 ease-in-out">Home</a></li>
+                <li><a href="index.html#features" class="hover:text-ozima-accent transition duration-300 ease-in-out">Features</a></li>
+                <li><a href="#plans" class="hover:text-ozima-accent transition duration-300 ease-in-out">Plans</a></li>
+                <li><a href="index.html#testimonials" class="hover:text-ozima-accent transition duration-300 ease-in-out">Testimonials</a></li>
+                <li><a href="index.html#contact" class="hover:text-ozima-accent transition duration-300 ease-in-out">Contact</a></li>
+            </ul>
+
+            <!-- Auth Buttons -->
+            <div class="hidden lg:flex items-center space-x-4 ml-auto">
+                <a href="login.html" class="px-6 py-2 rounded-full border border-ozima-accent text-ozima-accent hover:bg-ozima-accent hover:text-white transition duration-300 ease-in-out">Login</a>
+                <a href="register.html" class="gradient-button px-6 py-2 rounded-full text-white shadow-lg">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Detailed Pricing Plans Section -->
+    <section id="plans" class="py-16 md:py-24 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 text-white animate-on-scroll">All Available <span class="text-ozima-accent">Hosting Plans</span></h2>
+            <p class="text-lg text-center max-w-3xl mx-auto mb-16 text-slate-300 animate-on-scroll">
+                From small survival servers to large modded networks, Ozima Cloud has a plan designed for you.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
+                <!-- Plan Card: Dirt -->
+                <div class="price-card bg-gray-900 p-8 rounded-xl shadow-xl border border-transparent hover:border-ozima-accent transition-all duration-300 flex flex-col w-full max-w-sm animate-on-scroll">
+                    <h3 class="text-3xl font-bold mb-4 text-white">Dirt Plan</h3>
+                    <p class="text-slate-400 mb-6">Ideal for personal use & small groups</p>
+                    <div class="text-5xl font-extrabold text-white mb-6">
+                        ৳150<span class="text-2xl text-slate-400">/month</span>
+                    </div>
+                    <ul class="text-slate-300 mb-8 space-y-3 flex-grow">
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 1 GB RAM</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 1 vCore</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 GB NVMe SSD Storage</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Unlimited Player Slots</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Basic DDoS Protection</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 1 Allocations</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 1 Backup</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 1 Database</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 24/7 Ticketing Support</li>
+                    </ul>
+                    <a href="billiing.html" class="gradient-button px-8 py-3 rounded-full text-white text-lg font-semibold shadow-lg w-full text-center">Order Now</a>
+                </div>
+
+                <!-- Plan Card: Stone -->
+                <div class="price-card bg-gray-900 p-8 rounded-xl shadow-xl border border-transparent hover:border-ozima-accent transition-all duration-300 flex flex-col w-full max-w-sm animate-on-scroll">
+                    <h3 class="text-3xl font-bold mb-4 text-white">Stone Plan</h3>
+                    <p class="text-slate-400 mb-6">Ideal for small community servers with light plugins</p>
+                    <div class="text-5xl font-extrabold text-white mb-6">
+                        ৳250<span class="text-2xl text-slate-400">/month</span>
+                    </div>
+                    <ul class="text-slate-300 mb-8 space-y-3 flex-grow">
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 2 GB RAM</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 1 vCore</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 8 GB NVMe SSD Storage</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Unlimited Player Slots</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Basic DDoS Protection</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 2 Allocations</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 2 Backup</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 2 Database</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 24/7 Ticketing Support</li>
+                    </ul>
+                    <a href="billiing.html" class="gradient-button px-8 py-3 rounded-full text-white text-lg font-semibold shadow-lg w-full text-center">Order Now</a>
+                </div>
+
+                <!-- Plan card: Coal -->
+                <div class="price-card bg-gray-900 p-8 rounded-xl shadow-xl border border-transparent hover:border-ozima-accent transition-all duration-300 flex flex-col w-full max-w-sm animate-on-scroll">
+                    <h3 class="text-3xl font-bold mb-4 text-white">Coal Plan</h3>
+                    <p class="text-slate-400 mb-6">Ideal for medium-sized servers with plugins or events</p>
+                    <div class="text-5xl font-extrabold text-white mb-6">
+                        ৳350<span class="text-2xl text-slate-400">/month</span>
+                    </div>
+                    <ul class="text-slate-300 mb-8 space-y-3 flex-grow">
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 3 GB RAM</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 1.5 vCore</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 10 GB NVMe SSD Storage</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Unlimited Player Slots</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Basic DDoS Protection</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 3 Allocations</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 3 Backup</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 3 Database</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 24/7 Ticketing Support</li>
+                    </ul>
+                    <a href="billiing.html" class="gradient-button px-8 py-3 rounded-full text-white text-lg font-semibold shadow-lg w-full text-center">Order Now</a>
+                </div>
+
+                <!-- Plan Card: Iron -->
+                <div class="price-card bg-gray-900 p-8 rounded-xl shadow-xl border border-transparent hover:border-ozima-accent transition-all duration-300 flex flex-col w-full max-w-sm animate-on-scroll">
+                    <h3 class="text-3xl font-bold mb-4 text-white">Iron Plan</h3>
+                    <p class="text-slate-400 mb-6">Ideal for stable community servers with multiple plugins</p>
+                    <div class="text-5xl font-extrabold text-white mb-6">
+                        ৳520<span class="text-2xl text-slate-400">/month</span>
+                    </div>
+                    <ul class="text-slate-300 mb-8 space-y-3 flex-grow">
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 4 GB RAM</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 1.5 vCore</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 12 GB NVMe SSD Storage</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Unlimited Player Slots</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Basic DDoS Protection</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 4 Allocations</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 4 Backup</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 4 Database</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 24/7 Ticketing Support</li>
+                    </ul>
+                    <a href="billiing.html" class="gradient-button px-8 py-3 rounded-full text-white text-lg font-semibold shadow-lg w-full text-center">Order Now</a>
+                </div>
+                <!-- Plan Card: Amethyst (Most Popular) -->
+                <div class="price-card bg-gray-950 p-8 rounded-xl shadow-2xl border-2 border-ozima-accent flex flex-col w-full max-w-sm animate-on-scroll">
+                    <div class="bg-ozima-accent text-white text-sm font-bold px-4 py-1 rounded-full absolute -top-3 right-6 shadow-md flex items-center space-x-1">
+                        <span class="text-lg">⭐</span><span>Most Popular</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4 text-white">Amethyst Plan</h3>
+                    <p class="text-slate-400 mb-6">Ideal for public servers or light modded gameplay</p>
+                    <div class="text-5xl font-extrabold text-white mb-6">
+                        ৳650<span class="text-2xl text-slate-400">/month</span>
+                    </div>
+                    <ul class="text-slate-300 mb-8 space-y-3 flex-grow">
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 GB RAM</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 2 vCore</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 12 GB NVMe SSD Storage</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Unlimited Player Slots</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Basic DDoS Protection</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Allocations</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Backup</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Database</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 24/7 Ticketing Support</li>
+                    </ul>
+                    <a href="billiing.html" class="gradient-button px-8 py-3 rounded-full text-white text-lg font-semibold shadow-lg w-full text-center">Order Now</a>
+                </div>
+                <!-- Plan Card: Gold -->
+                <div class="price-card bg-gray-900 p-8 rounded-xl shadow-xl border border-transparent hover:border-ozima-accent transition-all duration-300 flex flex-col w-full max-w-sm animate-on-scroll">
+                    <h3 class="text-3xl font-bold mb-4 text-white">Gold Plan</h3>
+                    <p class="text-slate-400 mb-6">Ideal for large plugin setups, events, and active player bases</p>
+                    <div class="text-5xl font-extrabold text-white mb-6">
+                        ৳780<span class="text-2xl text-slate-400">/month</span>
+                    </div>
+                    <ul class="text-slate-300 mb-8 space-y-3 flex-grow">
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 6 GB RAM</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 2.5 vCore</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 15 GB NVMe SSD Storage</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Unlimited Player Slots</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Basic DDoS Protection</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Allocations</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Backup</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Database</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 24/7 Ticketing Support</li>
+                    </ul>
+                    <a href="billiing.html" class="gradient-button px-8 py-3 rounded-full text-white text-lg font-semibold shadow-lg w-full text-center">Order Now</a>
+                </div>
+                <!-- Plan Card: Emerald -->
+                <div class="price-card bg-gray-900 p-8 rounded-xl shadow-xl border border-transparent hover:border-ozima-accent transition-all duration-300 flex flex-col w-full max-w-sm animate-on-scroll">
+                    <h3 class="text-3xl font-bold mb-4 text-white">Emerald Plan</h3>
+                    <p class="text-slate-400 mb-6">Ideal for performance-focused servers with heavy plugins or light mods</p>
+                    <div class="text-5xl font-extrabold text-white mb-6">
+                        ৳1040<span class="text-2xl text-slate-400">/month</span>
+                    </div>
+                    <ul class="text-slate-300 mb-8 space-y-3 flex-grow">
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 8 GB RAM</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 2.5 vCore</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 18 GB NVMe SSD Storage</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Unlimited Player Slots</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Basic DDoS Protection</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Allocations</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Backup</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Database</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 24/7 Ticketing Support</li>
+                    </ul>
+                    <a href="billiing.html" class="gradient-button px-8 py-3 rounded-full text-white text-lg font-semibold shadow-lg w-full text-center">Order Now</a>
+                </div>
+
+                <!-- Plan Card: Diamond -->
+                <div class="price-card bg-gray-900 p-8 rounded-xl shadow-xl border border-transparent hover:border-ozima-accent transition-all duration-300 flex flex-col w-full max-w-sm animate-on-scroll">
+                    <h3 class="text-3xl font-bold mb-4 text-white">Diamond Plan</h3>
+                    <p class="text-slate-400 mb-6">Ideal for high-performance public servers or small modpacks</p>
+                    <div class="text-5xl font-extrabold text-white mb-6">
+                        ৳1300<span class="text-2xl text-slate-400">/month</span>
+                    </div>
+                    <ul class="text-slate-300 mb-8 space-y-3 flex-grow">
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 10 GB RAM</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 3 vCore</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 20 GB NVMe SSD Storage</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Unlimited Player Slots</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Basic DDoS Protection</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Allocations</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Backup</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Database</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 24/7 Ticketing Support</li>
+                    </ul>
+                    <a href="billiing.html" class="gradient-button px-8 py-3 rounded-full text-white text-lg font-semibold shadow-lg w-full text-center">Order Now</a>
+                </div>
+                <!-- Plan Card: Netherite -->
+                <div class="price-card bg-gray-900 p-8 rounded-xl shadow-xl border border-transparent hover:border-ozima-accent transition-all duration-300 flex flex-col w-full max-w-sm animate-on-scroll">
+                    <h3 class="text-3xl font-bold mb-4 text-white">Netherite Plan</h3>
+                    <p class="text-slate-400 mb-6">Ideal for modded servers, minigames, or medium-sized networks</p>
+                    <div class="text-5xl font-extrabold text-white mb-6">
+                        ৳1560<span class="text-2xl text-slate-400">/month</span>
+                    </div>
+                    <ul class="text-slate-300 mb-8 space-y-3 flex-grow">
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 12 GB RAM</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 3.5 vCore</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 22 GB NVMe SSD Storage</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Unlimited Player Slots</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Basic DDoS Protection</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Allocations</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Backup</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Database</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 24/7 Ticketing Support</li>
+                    </ul>
+                    <a href="billiing.html" class="gradient-button px-8 py-3 rounded-full text-white text-lg font-semibold shadow-lg w-full text-center">Order Now</a>
+                </div>
+                <!-- Plan Card: Obsidian -->
+                <div class="price-card bg-gray-900 p-8 rounded-xl shadow-xl border border-transparent hover:border-ozima-accent transition-all duration-300 flex flex-col w-full max-w-sm animate-on-scroll">
+                    <h3 class="text-3xl font-bold mb-4 text-white">Obsidian Plan</h3>
+                    <p class="text-slate-400 mb-6">Ideal for large-scale servers, heavy modpacks, or server networks</p>
+                    <div class="text-5xl font-extrabold text-white mb-6">
+                        ৳1820<span class="text-2xl text-slate-400">/month</span>
+                    </div>
+                    <ul class="text-slate-300 mb-8 space-y-3 flex-grow">
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 14 GB RAM</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 4 vCore</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 25 GB NVMe SSD Storage</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Unlimited Player Slots</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Basic DDoS Protection</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Allocations</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Backup</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Database</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 24/7 Ticketing Support</li>
+                    </ul>
+                    <a href="billiing.html" class="gradient-button px-8 py-3 rounded-full text-white text-lg font-semibold shadow-lg w-full text-center">Order Now</a>
+                </div>
+                <!-- Plan Card: Bedrock -->
+                <div class="price-card bg-gray-900 p-8 rounded-xl shadow-xl border border-transparent hover:border-ozima-accent transition-all duration-300 flex flex-col w-full max-w-sm animate-on-scroll">
+                    <h3 class="text-3xl font-bold mb-4 text-white">Bedrock Plan</h3>
+                    <p class="text-slate-400 mb-6">Ideal for large public servers, modded SMPs, or YouTuber/creator networks</p>
+                    <div class="text-5xl font-extrabold text-white mb-6">
+                        ৳2080<span class="text-2xl text-slate-400">/month</span>
+                    </div>
+                    <ul class="text-slate-300 mb-8 space-y-3 flex-grow">
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 16 GB RAM</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 4 vCore</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 28 GB NVMe SSD Storage</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Unlimited Player Slots</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Basic DDoS Protection</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Allocations</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Backup</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Database</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 24/7 Ticketing Support</li>
+                    </ul>
+                    <a href="billiing.html" class="gradient-button px-8 py-3 rounded-full text-white text-lg font-semibold shadow-lg w-full text-center">Order Now</a>
+                </div>
+                <!-- Plan Card: Glowstone -->
+                <div class="price-card bg-gray-900 p-8 rounded-xl shadow-xl border border-transparent hover:border-ozima-accent transition-all duration-300 flex flex-col w-full max-w-sm animate-on-scroll">
+                    <h3 class="text-3xl font-bold mb-4 text-white">Glowstone Plan</h3>
+                    <p class="text-slate-400 mb-6">Ideal for enterprise-level hosting, full modpacks, or high-traffic networks</p>
+                    <div class="text-5xl font-extrabold text-white mb-6">
+                        ৳2340<span class="text-2xl text-slate-400">/month</span>
+                    </div>
+                    <ul class="text-slate-300 mb-8 space-y-3 flex-grow">
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 18 GB RAM</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 4.5 vCore</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 30 GB NVMe SSD Storage</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Unlimited Player Slots</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> Basic DDoS Protection</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Allocations</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Backup</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 5 Database</li>
+                        <li class="flex items-center"><span class="text-ozima-accent mr-2">✓</span> 24/7 Ticketing Support</li>
+                    </ul>
+                    <a href="billiing.html" class="gradient-button px-8 py-3 rounded-full text-white text-lg font-semibold shadow-lg w-full text-center">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Home Button -->
+    <div class="text-center py-12 bg-slate-900">
+        <a href="index.html" class="px-8 py-3 rounded-full border border-slate-400 text-slate-300 text-lg font-semibold hover:bg-slate-800 hover:border-slate-300 transition duration-300 ease-in-out shadow-lg hover:scale-105 transition-transform animate-on-scroll">
+            ← Back to Home Page
+        </a>
+    </div>
+
+    <!-- Footer (reused from main page for consistency) -->
+    <footer class="bg-gray-900 text-slate-400 py-10">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-6">
+                <a href="index.html" class="text-3xl font-bold text-white tracking-wide">Ozima<span class="text-ozima-accent"> Cloud</span></a>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="hover:text-ozima-accent transition duration-300 ease-in-out">Privacy Policy</a>
+                <a href="#" class="hover:text-ozima-accent transition duration-300 ease-in-out">Terms of Service</a>
+                <a href="#" class="hover:text-ozima-accent transition duration-300 ease-in-out">FAQ</a>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6 text-xl">
+                <!-- Social Media Icons (placeholders) -->
+                <a href="#" class="hover:text-white transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="hover:text-white transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8.297 3.998c-2.185 0-3.967 1.782-3.967 3.967v8.069c0 2.185 1.782 3.967 3.967 3.967h7.406c2.185 0 3.967-1.782 3.967-3.967V7.965c0-2.185-1.782-3.967-3.967-3.967H8.297zM12 15.344c-1.848 0-3.344-1.496-3.344-3.344S10.152 8.656 12 8.656s3.344 1.496 3.344 3.344-1.496 3.344-3.344 3.344zM16.901 7.234c-.694 0-1.256-.562-1.256-1.256s.562-1.256 1.256-1.256 1.256.562 1.256 1.256-.562 1.256-1.256 1.256z" />
+                        <path fill-rule="evenodd" d="M12 7.087c-2.71 0-4.913 2.203-4.913 4.913S9.29 16.913 12 16.913s4.913-2.203 4.913-4.913S14.71 7.087 12 7.087zM16.901 5.378c.866 0 1.572.706 1.572 1.572S17.767 8.522 16.901 8.522s-1.572-.706-1.572-1.572.706-1.572 1.572-1.572z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="hover:text-white transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M22.196 4.093a8.311 8.311 0 0 1-2.357.646 4.161 4.161 0 0 0 1.815-2.27c-.822.487-1.732.842-2.693 1.034C17.65 2.87 16.59 2.33 15.462 2.33c-3.15 0-5.71 2.56-5.71 5.71 0 .448.05.88.145 1.295C7.26 9.17 4.855 7.844 3.23 5.75c-.47.808-.737 1.745-.737 2.748 0 1.98.995 3.73 2.505 4.757a4.136 4.136 0 0 1-1.85-.512c-.002.023-.002.046-.002.069 0 2.76 1.966 5.068 4.57 5.59a4.148 4.148 0 0 1-1.86.07 4.156 4.156 0 0 0 3.877 2.88c-1.95 1.528-4.407 2.438-7.07 2.438-.46 0-.91-.027-1.35-.08C2.56 20.306 5.176 22 8.04 22c9.643 0 14.904-8 14.904-14.904 0-.227-.005-.454-.015-.68Z" />
+                    </svg>
+                </a>
+            </div>
+            <p class="text-sm">&copy; 2025 Ozima Cloud. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('hidden');
+            navMenu.classList.toggle('flex');
+            navMenu.classList.toggle('flex-col');
+            navMenu.classList.toggle('items-center');
+            navMenu.classList.toggle('space-x-0');
+            navMenu.classList.toggle('space-y-4');
+            this.classList.toggle('open'); // Toggle burger icon animation
+            
+            // Toggle auth buttons visibility on mobile
+            const authButtons = document.querySelector('header nav > div:last-child');
+            if (window.innerWidth < 1024) { // Only for small screens
+                if (navMenu.classList.contains('flex')) {
+                    authButtons.classList.remove('hidden');
+                    authButtons.classList.add('flex', 'flex-col', 'space-y-4', 'space-x-0', 'mt-4', 'w-full', 'items-center');
+                } else {
+                    authButtons.classList.add('hidden');
+                    authButtons.classList.remove('flex', 'flex-col', 'space-y-4', 'space-x-0', 'mt-4', 'w-full', 'items-center');
+                }
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#nav-menu a').forEach(item => {
+            item.addEventListener('click', () => {
+                const navMenu = document.getElementById('nav-menu');
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                if (!navMenu.classList.contains('hidden')) {
+                    navMenu.classList.add('hidden');
+                    navMenu.classList.remove('flex', 'flex-col', 'items-center', 'space-x-0', 'space-y-4');
+                    mobileMenuButton.classList.remove('open');
+                    
+                    const authButtons = document.querySelector('header nav > div:last-child');
+                    if (window.innerWidth < 1024) {
+                        authButtons.classList.add('hidden');
+                        authButtons.classList.remove('flex', 'flex-col', 'space-y-4', 'space-x-0', 'mt-4', 'w-full', 'items-center');
+                    }
+                }
+            });
+        });
+
+        // Handle window resize to hide mobile menu and show desktop menu
+        window.addEventListener('resize', () => {
+            const navMenu = document.getElementById('nav-menu');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const authButtons = document.querySelector('header nav > div:last-child');
+            if (window.innerWidth >= 1024) {
+                navMenu.classList.remove('hidden', 'flex-col', 'items-center', 'space-y-4');
+                navMenu.classList.add('flex');
+                mobileMenuButton.classList.remove('open');
+                authButtons.classList.remove('hidden', 'flex-col', 'space-y-4', 'space-x-0', 'mt-4', 'w-full', 'items-center');
+                authButtons.classList.add('flex');
+            } else {
+                if (!navMenu.classList.contains('hidden')) {
+                    navMenu.classList.add('hidden', 'flex-col', 'items-center', 'space-y-4');
+                    navMenu.classList.remove('flex');
+                    mobileMenuButton.classList.remove('open');
+                    authButtons.classList.add('hidden');
+                    authButtons.classList.remove('flex', 'flex-col', 'space-y-4', 'space-x-0', 'mt-4', 'w-full', 'items-center');
+                }
+            }
+        });
+
+        // Smooth scrolling for navigation links within the plans.html
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for scroll animations (fade-in, slide-up)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target); // Unobserve after animation
+                }
+            });
+        }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
