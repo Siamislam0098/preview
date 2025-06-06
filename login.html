@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozima Cloud - Login</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #e2e8f0; /* Slate 200 */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Gradient background for the entire page */
+        .page-gradient-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #1e293b 100%);
+        }
+
+        /* Custom scroll animation styles */
+        .animate-on-load {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInSlideUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom gradient button */
+        .gradient-button {
+            background: linear-gradient(to right, #6366f1, #8b5cf6); /* Indigo 500 to Violet 500 */
+            transition: all 0.3s ease;
+        }
+        .gradient-button:hover {
+            background: linear-gradient(to right, #4f46e5, #7c3aed); /* Darker shades on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        /* Highlight color for accents */
+        .text-ozima-accent {
+            color: #6366f1; /* Indigo 500 */
+        }
+        /* Burger menu icon styling */
+        .burger-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+        .burger-icon span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: #e2e8f0;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+        .burger-icon.open span:nth-child(1) {
+            transform: translateY(11px) rotate(45deg);
+        }
+        .burger-icon.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .burger-icon.open span:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+        }
+    </style>
+</head>
+<body class="antialiased page-gradient-bg">
+
+    <!-- Header (reused from main page for consistency) -->
+    <header class="bg-gray-900 text-slate-200 p-4 md:p-6 shadow-lg fixed w-full z-50">
+        <nav class="container mx-auto flex justify-between items-center flex-wrap">
+            <a href="home.html" class="text-3xl font-bold text-white tracking-wide">Ozima<span class="text-ozima-accent"> Cloud</span></a>
+            
+            <!-- Mobile Menu Button -->
+            <div class="block lg:hidden">
+                <button id="mobile-menu-button" class="burger-icon focus:outline-none">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul id="nav-menu" class="hidden lg:flex flex-grow justify-center space-x-8 text-lg font-medium mt-4 lg:mt-0 w-full lg:w-auto">
+                <li><a href="home.html#home" class="hover:text-ozima-accent transition duration-300 ease-in-out">Home</a></li>
+                <li><a href="home.html#features" class="hover:text-ozima-accent transition duration-300 ease-in-out">Features</a></li>
+                <li><a href="plans.html" class="hover:text-ozima-accent transition duration-300 ease-in-out">Plans</a></li>
+                <li><a href="home.html#testimonials" class="hover:text-ozima-accent transition duration-300 ease-in-out">Testimonials</a></li>
+                <li><a href="home.html#contact" class="hover:text-ozima-accent transition duration-300 ease-in-out">Contact</a></li>
+            </ul>
+
+            <!-- Auth Buttons -->
+            <div class="hidden lg:flex items-center space-x-4 ml-auto">
+                <button class="px-6 py-2 rounded-full border border-ozima-accent text-ozima-accent hover:bg-ozima-accent hover:text-white transition duration-300 ease-in-out">Login</button>
+                <button class="gradient-button px-6 py-2 rounded-full text-white shadow-lg">Sign Up</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content for Login Page -->
+    <main class="flex-grow flex items-center justify-center p-4 pt-20">
+        <div class="bg-gray-800 p-8 md:p-10 rounded-xl shadow-2xl w-full max-w-md animate-on-load">
+            <h2 class="text-4xl font-bold text-center mb-6 text-white">Welcome Back!</h2>
+            <p class="text-slate-300 text-center mb-8">Sign in to manage your Minecraft servers.</p>
+
+            <form class="space-y-6">
+                <div>
+                    <label for="email" class="block text-slate-300 text-sm font-medium mb-2">Email Address</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-ozima-accent" placeholder="your@example.com" required>
+                </div>
+                <div>
+                    <label for="password" class="block text-slate-300 text-sm font-medium mb-2">Password</label>
+                    <input type="password" id="password" name="password" class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-ozima-accent" placeholder="••••••••" required>
+                </div>
+
+                <div class="flex items-center justify-between text-sm">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="remember-me" class="h-4 w-4 text-ozima-accent bg-gray-700 border-gray-600 rounded focus:ring-ozima-accent">
+                        <label for="remember-me" class="ml-2 text-slate-300">Remember me</label>
+                    </div>
+                    <a href="#" class="text-ozima-accent hover:underline">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="gradient-button w-full py-3 rounded-lg text-white text-lg font-semibold shadow-lg">Login</button>
+            </form>
+
+            <p class="text-center text-slate-400 mt-8">
+                Don't have an account? <a href="register.html" class="text-ozima-accent hover:underline font-semibold">Sign Up</a>
+            </p>
+
+            <!-- Database Connection Section Placeholder -->
+            <div class="mt-12 p-6 bg-gray-900 rounded-lg border border-gray-700 text-slate-400 text-sm text-center">
+                <p class="font-semibold text-white mb-2">Database Connection Placeholder</p>
+                <p>This section would contain logic to connect to your authentication database (e.g., Firebase, SQL, etc.) for user verification.</p>
+                <p class="text-xs mt-2 italic">Actual implementation requires backend services.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (reused from main page for consistency) -->
+    <footer class="bg-gray-900 text-slate-400 py-10 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-6">
+                <a href="Home.html" class="text-3xl font-bold text-white tracking-wide">Ozima<span class="text-ozima-accent"> Cloud</span></a>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="hover:text-ozima-accent transition duration-300 ease-in-out">Privacy Policy</a>
+                <a href="#" class="hover:text-ozima-accent transition duration-300 ease-in-out">Terms of Service</a>
+                <a href="#" class="hover:text-ozima-accent transition duration-300 ease-in-out">FAQ</a>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6 text-xl">
+                <!-- Social Media Icons (placeholders) -->
+                <a href="#" class="hover:text-white transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="hover:text-white transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8.297 3.998c-2.185 0-3.967 1.782-3.967 3.967v8.069c0 2.185 1.782 3.967 3.967 3.967h7.406c2.185 0 3.967-1.782 3.967-3.967V7.965c0-2.185-1.782-3.967-3.967-3.967H8.297zM12 15.344c-1.848 0-3.344-1.496-3.344-3.344S10.152 8.656 12 8.656s3.344 1.496 3.344 3.344-1.496 3.344-3.344 3.344zM16.901 7.234c-.694 0-1.256-.562-1.256-1.256s.562-1.256 1.256-1.256 1.256.562 1.256 1.256-.562 1.256-1.256 1.256z" />
+                        <path fill-rule="evenodd" d="M12 7.087c-2.71 0-4.913 2.203-4.913 4.913S9.29 16.913 12 16.913s4.913-2.203 4.913-4.913S14.71 7.087 12 7.087zM16.901 5.378c.866 0 1.572.706 1.572 1.572S17.767 8.522 16.901 8.522s-1.572-.706-1.572-1.572.706-1.572 1.572-1.572z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="hover:text-white transition duration-300 ease-in-out">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M22.196 4.093a8.311 8.311 0 0 1-2.357.646 4.161 4.161 0 0 0 1.815-2.27c-.822.487-1.732.842-2.693 1.034C17.65 2.87 16.59 2.33 15.462 2.33c-3.15 0-5.71 2.56-5.71 5.71 0 .448.05.88.145 1.295C7.26 9.17 4.855 7.844 3.23 5.75c-.47.808-.737 1.745-.737 2.748 0 1.98.995 3.73 2.505 4.757a4.136 4.136 0 0 1-1.85-.512c-.002.023-.002.046-.002.069 0 2.76 1.966 5.068 4.57 5.59a4.148 4.148 0 0 1-1.86.07 4.156 4.156 0 0 0 3.877 2.88c-1.95 1.528-4.407 2.438-7.07 2.438-.46 0-.91-.027-1.35-.08C2.56 20.306 5.176 22 8.04 22c9.643 0 14.904-8 14.904-14.904 0-.227-.005-.454-.015-.68Z" />
+                    </svg>
+                </a>
+            </div>
+            <p class="text-sm">&copy; 2025 Ozima Cloud. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // JavaScript for mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('hidden');
+            navMenu.classList.toggle('flex');
+            navMenu.classList.toggle('flex-col');
+            navMenu.classList.toggle('items-center');
+            navMenu.classList.toggle('space-x-0');
+            navMenu.classList.toggle('space-y-4');
+            this.classList.toggle('open'); // Toggle burger icon animation
+            
+            // Toggle auth buttons visibility on mobile
+            const authButtons = document.querySelector('header nav > div:last-child');
+            if (window.innerWidth < 1024) { // Only for small screens
+                if (navMenu.classList.contains('flex')) {
+                    authButtons.classList.remove('hidden');
+                    authButtons.classList.add('flex', 'flex-col', 'space-y-4', 'space-x-0', 'mt-4', 'w-full', 'items-center');
+                } else {
+                    authButtons.classList.add('hidden');
+                    authButtons.classList.remove('flex', 'flex-col', 'space-y-4', 'space-x-0', 'mt-4', 'w-full', 'items-center');
+                }
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#nav-menu a').forEach(item => {
+            item.addEventListener('click', () => {
+                const navMenu = document.getElementById('nav-menu');
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                if (!navMenu.classList.contains('hidden')) {
+                    navMenu.classList.add('hidden');
+                    navMenu.classList.remove('flex', 'flex-col', 'items-center', 'space-x-0', 'space-y-4');
+                    mobileMenuButton.classList.remove('open');
+                    
+                    const authButtons = document.querySelector('header nav > div:last-child');
+                    if (window.innerWidth < 1024) {
+                        authButtons.classList.add('hidden');
+                        authButtons.classList.remove('flex', 'flex-col', 'space-y-4', 'space-x-0', 'mt-4', 'w-full', 'items-center');
+                    }
+                }
+            });
+        });
+
+        // Handle window resize to hide mobile menu and show desktop menu
+        window.addEventListener('resize', () => {
+            const navMenu = document.getElementById('nav-menu');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const authButtons = document.querySelector('header nav > div:last-child');
+            if (window.innerWidth >= 1024) {
+                navMenu.classList.remove('hidden', 'flex-col', 'items-center', 'space-y-4');
+                navMenu.classList.add('flex');
+                mobileMenuButton.classList.remove('open');
+                authButtons.classList.remove('hidden', 'flex-col', 'space-y-4', 'space-x-0', 'mt-4', 'w-full', 'items-center');
+                authButtons.classList.add('flex');
+            } else {
+                if (!navMenu.classList.contains('hidden')) {
+                    navMenu.classList.add('hidden', 'flex-col', 'items-center', 'space-y-4');
+                    navMenu.classList.remove('flex');
+                    mobileMenuButton.classList.remove('open');
+                    authButtons.classList.add('hidden');
+                    authButtons.classList.remove('flex', 'flex-col', 'space-y-4', 'space-x-0', 'mt-4', 'w-full', 'items-center');
+                }
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
