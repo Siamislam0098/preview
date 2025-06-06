@@ -14,6 +14,32 @@
             color: #e2e8f0; /* Slate 200 */
             overflow-x: hidden; /* Prevent horizontal scroll due to animations */
         }
+
+        /* Custome scrollbar */
+        /* Scrollbar for entire website */
+        ::-webkit-scrollbar {
+        width: 10px; /* vertical scrollbar width */
+        height: 8px; /* horizontal scrollbar height */
+        }
+
+        /* Track (background of scrollbar) */
+        ::-webkit-scrollbar-track {
+        background: #1a1a1a;
+        border-radius: 10px;
+        }
+
+        /* Thumb (the draggable part) */
+        ::-webkit-scrollbar-thumb {
+        background: #00ffff; /* neon cyan */
+        border-radius: 10px;
+        border: 2px solid #0f0f0f;
+        }
+
+        /* On hover */
+        ::-webkit-scrollbar-thumb:hover {
+         background: #00e0e0;
+        }
+
         /* Custom background for hero section with a subtle gradient */
         .hero-background {
             background: linear-gradient(to bottom, #1e293b, #0f172a);
